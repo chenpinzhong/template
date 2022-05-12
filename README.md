@@ -1,15 +1,13 @@
-# umi project
-
-## Getting Started
+# umi 这个代码用用于构建前端页面的
 
 Install dependencies,
 
 ```bash
-$ yarn
+$ yarn #安装所需的插件
 ```
 
-Start the dev server,
+启动dev服务器，
 
 ```bash
-$ yarn start
+$ yarn start  #启动
 ```
