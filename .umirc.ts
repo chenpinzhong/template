@@ -1,5 +1,6 @@
 import { defineConfig } from 'umi';
 
+
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
@@ -9,14 +10,16 @@ export default defineConfig({
   },
   routes: [
     { path: '/', component: '@/pages/index' },
-    { 
+    {
       path: '/user', component: '@/layouts/index',
       routes: [
-        { 
-          path: '/user/index', component: '@/pages/user/index' 
+        {
+          path: '/user/index', component: '@/pages/user/index'
         },
       ],
     },
+    { path: '/dva', component: '@/pages/dva' },
   ],
   fastRefresh: {},
+  //mock:false, /*模拟关闭*/
 });

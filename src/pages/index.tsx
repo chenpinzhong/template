@@ -1,19 +1,45 @@
 import styles from './index.less';
 import {Button} from 'antd';
-import { request } from 'umi';
+import {request} from 'umi';
+import Header from '../layouts/header'
+import React,{Component} from "react";
 
-export default function IndexPage(props:any) {
-  const getDate=function(){
-      //请求数据
-      request('api/users').then(res=>{
-        console.log(res)
-      });
-  };
-
-  return (
-    <div>
-      <h1 className={styles.title}>Page index</h1>
-      <Button onClick={getDate}> 点我获取数据</Button>
-    </div>
-  );
+class Index extends React.Component{
+    state={
+        site_name:'12222223'//站点名称
+    }
+    array=[1,3,4]
+    logoClick=()=>{
+        let temp_name=this.state.site_name
+        this.setState({site_name:temp_name+'-x'});
+    };
+    render() {
+        let {site_name}= this.state;
+        let p={name:'123'}
+        return (
+            <div>
+                <Header {...p}>1111</Header>
+                <div className={styles['default-navbar']} data-mode="site">
+                    <a className={styles['default-navbar-logo']} href="#" onClick={this.logoClick} >{site_name}</a>
+                    <nav>
+                        <div className={styles['default-search']}>
+                            <input type="search" className={styles['default-search-input']} />
+                            <ul>
+                                {
+                                    this.array.map((item,index)=>{
+                                        return <li key={index}>{item}</li>
+                                    })
+                                }
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        );
+    }
 }
+export default Index;
+
+
+
+
