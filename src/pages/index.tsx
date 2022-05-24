@@ -5,6 +5,7 @@ import Header from '../layouts/header'
 import React,{Component} from "react";
 
 class Index extends React.Component{
+    ref=React.createRef();
     state={
         site_name:'12222223'//站点名称
     }
@@ -12,6 +13,7 @@ class Index extends React.Component{
     logoClick=()=>{
         let temp_name=this.state.site_name
         this.setState({site_name:temp_name+'-x'});
+        console.log(this.ref);
     };
     render() {
         let {site_name}= this.state;
@@ -23,7 +25,7 @@ class Index extends React.Component{
                     <a className={styles['default-navbar-logo']} href="#" onClick={this.logoClick} >{site_name}</a>
                     <nav>
                         <div className={styles['default-search']}>
-                            <input type="search" className={styles['default-search-input']} />
+                            <input ref={this.ref} type="search" className={styles['default-search-input']} />
                             <ul>
                                 {
                                     this.array.map((item,index)=>{
